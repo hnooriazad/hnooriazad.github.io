@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>حسین نوری‌آزاد | مهندس ارشد نرم‌افزار و لید فنی .NET</title>
+<meta name="description" content="پورتفولیو حسین نوری‌آزاد — مهندس ارشد نرم‌افزار و لید فنی با ۹+ سال تجربه در طراحی و توسعه بک‌اند، میکروسرویس و معماری تمیز با C#/.NET، SQL Server، PostgreSQL، MongoDB و Redis.">
+<meta name="author" content="Hossein NooriAzad">
+<meta name="theme-color" content="#07090e">
+<link rel="canonical" href="https://nooriazad.ir/">
+<link rel="alternate" hreflang="fa" href="https://nooriazad.ir/">
+<link rel="alternate" hreflang="en" href="https://nooriazad.ir/en/">
+<link rel="alternate" hreflang="x-default" href="https://nooriazad.ir/">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/favicon.svg">
+
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:site_name" content="nooriazad.ir">
+<meta property="og:title" content="حسین نوری‌آزاد | مهندس ارشد نرم‌افزار و لید فنی .NET">
+<meta property="og:description" content="۹+ سال تجربه در بک‌اند و میکروسرویس با .NET. معماری تمیز، پرفورمنس بالا، تحویل قابل‌اتکا.">
+<meta property="og:url" content="https://nooriazad.ir/">
+<meta property="og:image" content="https://nooriazad.ir/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://nooriazad.ir/assets/img/og.png">
+
+<link rel="preload" href="assets/fonts/Vazirmatn-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Vazirmatn-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Hossein NooriAzad",
+  "alternateName": "حسین نوری‌آزاد",
+  "jobTitle": "Senior Software Engineer / Tech Lead",
+  "url": "https://nooriazad.ir/",
+  "email": "mailto:h.nooriazad93@gmail.com",
+  "sameAs": ["https://www.linkedin.com/in/hnooriazad", "https://github.com/hnooriazad"],
+  "knowsAbout": ["C#", ".NET", "ASP.NET Core", "Microservices", "SQL Server", "PostgreSQL", "MongoDB", "Redis", "RabbitMQ", "Docker", "Clean Architecture", "CQRS", "DDD"],
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Arak University" }
+}
+</script>
+</head>
+<body>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="header" id="top">
+  <div class="container header__inner">
+    <a class="brand" href="#top" aria-label="حسین نوری‌آزاد — صفحه اصلی">
+      <span class="brand__mark">HN</span>
+      <span class="brand__text">حسین نوری‌آزاد<small>Senior .NET Engineer</small></span>
+    </a>
+
+    <nav class="nav" aria-label="ناوبری اصلی">
+      <a href="#about">درباره من</a>
+      <a href="#skills">مهارت‌ها</a>
+      <a href="#experience">تجربه کاری</a>
+      <a href="#work">پروژه‌ها</a>
+      <a href="#contact">تماس</a>
+    </nav>
+
+    <div class="header__actions">
+      <a class="lang-btn" href="en/" hreflang="en" lang="en" title="English version">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
+        <span>EN</span>
+      </a>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="تغییر روشنایی" title="روشن / تاریک">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="منو" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile drawer -->
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="منوی موبایل">
+  <div class="drawer__scrim" data-close></div>
+  <div class="drawer__panel">
+    <button class="icon-btn drawer__close" type="button" data-close aria-label="بستن">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <a href="#about" data-close>درباره من</a>
+    <a href="#skills" data-close>مهارت‌ها</a>
+    <a href="#experience" data-close>تجربه کاری</a>
+    <a href="#work" data-close>پروژه‌ها</a>
+    <a href="#contact" data-close>تماس</a>
+    <a href="en/" hreflang="en" lang="en">English</a>
+  </div>
+</div>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="container hero__grid">
+    <div>
+      <span class="badge-live"><span class="dot-live"></span> آمادهٔ همکاری روی پروژه‌های .NET</span>
+      <h1>بک‌اندی می‌سازم که<br><span class="grad">مقیاس می‌گیرد</span></h1>
+      <p class="hero__role">حسین نوری‌آزاد — مهندس ارشد نرم‌افزار / لید فنی .NET</p>
+      <p class="hero__lead">
+        ۹+ سال طراحی و پیاده‌سازی سیستم‌های بک‌اند و میکروسرویس با C#/.NET برای صنعت بیمه،
+        گردشگری و خرده‌فروشی. تمرکزم روی معماری تمیز، پرفورمنس واقعی و تحویلی که تیم بعدی هم
+        بتواند نگهش دارد.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="assets/Hossein-NooriAzad-Resume.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+          دانلود رزومه (PDF)
+        </a>
+        <a class="btn btn--ghost" href="#experience">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+          دیدن تجربه کاری
+        </a>
+      </div>
+      <div class="hero__meta">
+        <a href="mailto:h.nooriazad93@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          h.nooriazad93@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/hnooriazad" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10.5V17M7.5 7.6v.1M12 17v-3.6a2.2 2.2 0 0 1 4.4 0V17"/></svg>
+          linkedin.com/in/hnooriazad
+        </a>
+        <a href="https://github.com/hnooriazad" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-4 1.2-4-2.2-5.5-2.8M15 21v-3.6c0-1 .1-1.4-.5-2 2.3-.3 4.5-1.1 4.5-5a3.9 3.9 0 0 0-1.1-2.7 3.6 3.6 0 0 0-.1-2.7s-1.1-.3-3.6 1.3a12.4 12.4 0 0 0-6.5 0C5.2 2.7 4.1 3 4.1 3a3.6 3.6 0 0 0-.1 2.7A3.9 3.9 0 0 0 2.9 8.4c0 3.8 2.1 4.6 4.4 4.9-.5.6-.6 1.3-.5 2V21"/></svg>
+          github.com/hnooriazad
+        </a>
+      </div>
+    </div>
+
+    <div class="codecard" aria-hidden="true">
+      <div class="codecard__bar"><span></span><span></span><span></span><em class="codecard__name">profile.cs</em></div>
+<pre><span class="c">// engineer.service.ts? not today.</span>
+<span class="k">public class</span> <span class="p">Engineer</span>
+{
+    <span class="k">public string</span> Name = <span class="s">"Hossein NooriAzad"</span>;
+    <span class="k">public string</span> Role = <span class="s">"Senior .NET Engineer"</span>;
+    <span class="k">public int</span> Years = <span class="n">9</span>;
+
+    <span class="k">public string</span>[] Stack =
+        { <span class="s">"C#"</span>, <span class="s">".NET"</span>, <span class="s">"SQL Server"</span>,
+          <span class="s">"PostgreSQL"</span>, <span class="s">"MongoDB"</span>, <span class="s">"Redis"</span> };
+
+    <span class="k">public string</span>[] Architecture =
+        { <span class="s">"Microservices"</span>, <span class="s">"CQRS"</span>, <span class="s">"DDD"</span>,
+          <span class="s">"Clean Architecture"</span> };
+
+    <span class="c">// ship it, then make it fast.</span>
+    <span class="k">public</span> Task&lt;Product&gt; Build(Idea i) =&gt; i.Deliver();
+}</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ STATS ══════════════ -->
+<div class="container" style="padding-bottom: clamp(20px,4vw,40px)">
+  <div class="stats reveal">
+    <div class="stat"><div class="stat__num">۹+</div><div class="stat__label">سال تجربهٔ توسعه</div></div>
+    <div class="stat"><div class="stat__num">۲۰۰+</div><div class="stat__label">پروژه در اکوسیستم بیمه</div></div>
+    <div class="stat"><div class="stat__num">۹۰٪</div><div class="stat__label">بهبود سرعت جستجو</div></div>
+    <div class="stat"><div class="stat__num">۳۰٪</div><div class="stat__label">رشد درآمد محصول</div></div>
+  </div>
+</div>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow">درباره من</span>
+      <h2 class="section-title">مهندسی که کد را برای تیم بعدی هم می‌نویسد</h2>
+    </div>
+
+    <div class="about">
+      <div class="reveal">
+        <p>
+          من <strong>حسین نوری‌آزاد</strong> هستم؛ مهندس نرم‌افزار با ۹+ سال تجربه در ساخت
+          سیستم‌های بک‌اند سازمانی. مسیرم از SQL و گزارش‌سازی شروع شد، با اپلیکیشن‌های دسکتاپ
+          و DevExpress ادامه پیدا کرد و امروز روی معماری میکروسرویس، Clean Architecture و
+          سیستم‌های پرترافیک متمرکز است.
+        </p>
+        <p>
+          در <strong>FadakTrains</strong> تیم هتل و تور را لید می‌کنم؛ جایی که یک قابلیت بک‌اند
+          (رزرو هتل) به‌طور مستقیم حدود <strong>۳۰٪ رشد درآمد</strong> شرکت را رقم زد. پیش از آن
+          در <strong>IWand</strong> معماری ماژولار مونولیت را با .NET 7 بالا آوردم و با بهینه‌سازی
+          دقیق کوئری‌ها و ایندکس‌گذاری، سرعت پاسخ جستجو را بیش از <strong>۹۰٪</strong> بهتر کردم.
+        </p>
+        <p>
+          چیزی که برایم مهم است: کدی که خوانا باشد، تصمیم‌های معماری که مستند شوند، و تحویلی که
+          بعد از رفتن من هم قابل نگهداری باشد. بخشی از وقتم هم همیشه صرف آموزش و منتورینگ
+          توسعه‌دهنده‌های جوان‌تر شده است.
+        </p>
+      </div>
+
+      <div class="factlist reveal">
+        <div class="fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>
+          <div><b>نقش فعلی</b><span>Senior Software Engineer · FadakTrains</span></div>
+        </div>
+        <div class="fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-5 9 5-9 5-9-5Z"/><path d="M7 11.5V17c0 1.5 2.2 3 5 3s5-1.5 5-3v-5.5"/></svg>
+          <div><b>تحصیلات</b><span>کارشناسی مهندسی نرم‌افزار · دانشگاه اراک</span></div>
+        </div>
+        <div class="fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg>
+          <div><b>تمرکز تخصصی</b><span>بک‌اند، میکروسرویس، پرفورمنس</span></div>
+        </div>
+        <div class="fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.6 2.4 15.4 0 18M12 3c-2.4 2.6-2.4 15.4 0 18"/></svg>
+          <div><b>زبان‌ها</b><span>فارسی (زبان مادری) · انگلیسی (بالاتر از متوسط)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SKILLS ══════════════ -->
+<section class="section section--alt" id="skills">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow">مهارت‌ها</span>
+      <h2 class="section-title">جعبه‌ابزار کاری</h2>
+      <p class="section-sub">ابزارهایی که در ۹ سال گذشته واقعاً با آن‌ها محصول تحویل داده‌ام — نه لیستی از چیزهایی که فقط یک‌بار دیده‌ام.</p>
+    </div>
+
+    <div class="skills">
+      <article class="skillcard reveal">
+        <div class="skillcard__head">
+          <span class="skillcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg></span>
+          <h3>زبان و فریمورک‌ها</h3>
+        </div>
+        <div class="pills">
+          <span class="pill">C#</span><span class="pill">.NET</span><span class="pill">.NET Core</span>
+          <span class="pill">ASP.NET MVC</span><span class="pill">Entity Framework</span>
+          <span class="pill">WPF</span><span class="pill">WinForms</span><span class="pill">WebForms</span>
+          <span class="pill">DevExpress</span><span class="pill">SignalR</span>
+        </div>
+      </article>
+
+      <article class="skillcard reveal">
+        <div class="skillcard__head">
+          <span class="skillcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
+          <h3>دیتابیس و کش</h3>
+        </div>
+        <div class="pills">
+          <span class="pill">SQL Server</span><span class="pill">PostgreSQL</span><span class="pill">MongoDB</span>
+          <span class="pill">Redis</span><span class="pill">MySQL</span><span class="pill">PL/SQL (Oracle)</span>
+        </div>
+      </article>
+
+      <article class="skillcard reveal">
+        <div class="skillcard__head">
+          <span class="skillcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16v10H4z"/><path d="M8 21h8M12 17v4"/><path d="M8 11h2l1.5 2L13 11h2"/></svg></span>
+          <h3>معماری و الگوها</h3>
+        </div>
+        <div class="pills">
+          <span class="pill">Microservices</span><span class="pill">Clean Architecture</span>
+          <span class="pill">Modular Monolith</span><span class="pill">DDD</span>
+          <span class="pill">CQRS</span><span class="pill">MediatR</span>
+          <span class="pill">SOLID</span><span class="pill">OOP</span><span class="pill">AutoMapper</span>
+        </div>
+      </article>
+
+      <article class="skillcard reveal">
+        <div class="skillcard__head">
+          <span class="skillcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v6m0 6v6M3 12h6m6 0h6"/><circle cx="12" cy="12" r="3.2"/></svg></span>
+          <h3>ابزار، زیرساخت و متدولوژی</h3>
+        </div>
+        <div class="pills">
+          <span class="pill">Docker</span><span class="pill">RESTful API</span><span class="pill">RabbitMQ</span>
+          <span class="pill">gRPC / Event Bus</span><span class="pill">IdentityServer</span>
+          <span class="pill">AWS S3</span><span class="pill">MinIO</span><span class="pill">CI/CD</span>
+          <span class="pill">Git</span><span class="pill">IIS</span><span class="pill">Serilog / NLog</span>
+          <span class="pill">Unit Testing</span><span class="pill">Agile / Scrum</span><span class="pill">Mentorship</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ EXPERIENCE ══════════════ -->
+<section class="section" id="experience">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow">تجربه کاری</span>
+      <h2 class="section-title">از SQL تا لید فنی</h2>
+      <p class="section-sub">یازده سال مسیر شغلی، شش سازمان، و یک خط ثابت: تحویل سیستم‌هایی که در تولید کار می‌کنند.</p>
+    </div>
+
+    <div class="timeline">
+      <article class="job reveal">
+        <div class="job__top">
+          <h3 class="job__role">مهندس ارشد نرم‌افزار</h3>
+          <a class="job__company" href="https://fadaktrains.com" target="_blank" rel="noopener">FadakTrains</a>
+          <span class="job__when">اکتبر ۲۰۲۳ — اکنون</span>
+        </div>
+        <div class="job__where">لید تیم هتل و تور · تیم ۴ نفره (۲ بک‌اند، ۲ فرانت‌اند)</div>
+        <ul>
+          <li>لید تیم هتل و تور و توسعهٔ قابلیت‌های جدید از جمله <b>رزرو هتل</b> که حدود <mark>۳۰٪ رشد درآمد</mark> شرکت را رقم زد.</li>
+          <li>پیاده‌سازی بک‌اند سرویس‌های هتل و تور و یکپارچه‌سازی کامل با سرویس‌های موجود مثل Identity و سرویس قطار.</li>
+          <li>هدایت تیم ۴ نفرهٔ فنی؛ تقسیم تسک‌ها، هماهنگی با مدیر محصول و همکاری نزدیک با تیم UI/UX برای پیاده‌سازی بدون اصطکاک فیچرها.</li>
+        </ul>
+      </article>
+
+      <article class="job reveal">
+        <div class="job__top">
+          <h3 class="job__role">لید فنی</h3>
+          <span class="job__company">IWand.Style</span>
+          <span class="job__when">نوامبر ۲۰۲۲ — نوامبر ۲۰۲۳</span>
+        </div>
+        <div class="job__where">۱۲ ماه · معماری ماژولار مونولیت روی .NET 7</div>
+        <ul>
+          <li>طراحی و پیاده‌سازی اپلیکیشن بر پایهٔ معماری <b>مونولیت ماژولار</b> با .NET 7 همراه با IdentityServer، AWS S3، MinIO، Event Bus روی RabbitMQ و سرویس‌های لاگ.</li>
+          <li>استفاده از MongoDB و PostgreSQL برای پردازش داده در همکاری با دامنهٔ هوش مصنوعی.</li>
+          <li>بهبود بیش از <mark>۹۰٪ در زمان پاسخ جستجو</mark> از طریق بازنویسی و بهینه‌سازی دقیق کوئری‌ها.</li>
+          <li>برگزاری جلسات آموزش برای توسعه‌دهنده‌های جوان و همراستاسازی مهارت‌ها با اهداف شرکت.</li>
+        </ul>
+      </article>
+
+      <article class="job reveal">
+        <div class="job__top">
+          <h3 class="job__role">توسعه‌دهنده .NET</h3>
+          <span class="job__company">IranElT</span>
+          <span class="job__when">فوریه ۲۰۲۱ — دسامبر ۲۰۲۲</span>
+        </div>
+        <div class="job__where">۲۲ ماه · اکوسیستم بیمهٔ ایران، ۲۰۰+ پروژه</div>
+        <ul>
+          <li>مشارکت در یک راهکار جامع <b>میکروسرویس .NET</b> برای صنعت بیمهٔ ایران با بیش از <mark>۲۰۰ پروژه</mark>.</li>
+          <li>توسعهٔ تدریجی قابلیت‌ها و همراستاسازی آن‌ها با اهداف کلان کسب‌وکار.</li>
+          <li>همکاری با تحلیلگران برای رفع مسائل پروژه و اعمال اصول SOLID برای افزایش کارایی.</li>
+          <li>آموزش توسعه‌دهنده‌های جوان و شکل‌دهی به یک تیم منسجم و توانمند.</li>
+        </ul>
+      </article>
+
+      <article class="job reveal">
+        <div class="job__top">
+          <h3 class="job__role">توسعه‌دهنده بک‌اند</h3>
+          <span class="job__company">Chalka</span>
+          <span class="job__when">اکتبر ۲۰۲۰ — فوریه ۲۰۲۱</span>
+        </div>
+        <div class="job__where">۵ ماه</div>
+        <ul>
+          <li>یکپارچه‌سازی اپلیکیشن وب با اپلیکیشن موبایل و انتشار بیش از <b>۳۰ API</b> مبتنی بر REST.</li>
+          <li>توسعهٔ اپلیکیشن ASP.NET WebForms برای مدیریت اطلاعات مرتبط با پیاده‌روی اربعین.</li>
+        </ul>
+      </article>
+
+      <article class="job reveal">
+        <div class="job__top">
+          <h3 class="job__role">توسعه‌دهنده .NET</h3>
+          <span class="job__company">Shygun System</span>
+          <span class="job__when">فوریه ۲۰۱۸ — نوامبر ۲۰۲۰</span>
+        </div>
+        <div class="job__where">۳۴ ماه · نرم‌افزارهای دسکتاپ انبار، حسابداری و مدیریت شعب</div>
+        <ul>
+          <li>پیاده‌سازی اپلیکیشن‌های ویندوزی C# و پروژه‌های .NET در حوزهٔ انبارداری، حسابداری و مدیریت شعب.</li>
+          <li>استفاده از DevExpress WinForms در محصول <b>HESABGAR: STORES</b> برای افزایش بهره‌وری انبار.</li>
+          <li>توسعهٔ پلاگین‌ها و وب‌سرویس‌ها برای یکپارچه‌سازی تجارت الکترونیک با <mark>۱۰۰+ وب API</mark>.</li>
+          <li>معرفی SignalR برای جمع‌آوری داده‌های آنلاین و لحظه‌ای و بهبود تحلیل داده‌ها.</li>
+        </ul>
+      </article>
+
+      <article class="job reveal">
+        <div class="job__top">
+          <h3 class="job__role">توسعه‌دهنده SQL</h3>
+          <span class="job__company">ITDP Rose</span>
+          <span class="job__when">ژوئن ۲۰۱۶ — فوریه ۲۰۱۸</span>
+        </div>
+        <div class="job__where">۲۱ ماه</div>
+        <ul>
+          <li>بهبود رویه‌ها و توابع SQL در سرویس‌های گزارش‌گیری نرم‌افزارهای حسابداری، HRM و حقوق و دستمزد.</li>
+          <li>طراحی دیتابیس‌های کسب‌وکار در همکاری با راه‌آهن ایران.</li>
+          <li>بهینه‌سازی عملکرد دیتابیس و دستیابی به <mark>۲۰٪ افزایش سرعت</mark> گزارش‌های سیستم.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SELECTED WORK ══════════════ -->
+<section class="section section--alt" id="work">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow">نمونه‌کارها</span>
+      <h2 class="section-title">پروژه‌هایی که به آن‌ها افتخار می‌کنم</h2>
+      <p class="section-sub">چند کار شاخص از میان پروژه‌هایی که در آن‌ها مسئولیت معماری یا تحویل فنی داشتم.</p>
+    </div>
+
+    <div class="projects">
+      <article class="project reveal">
+        <div class="project__kicker">FadakTrains · گردشگری</div>
+        <h3>پلتفرم رزرو هتل و تور</h3>
+        <p>طراحی و پیاده‌سازی بک‌اند رزرو هتل و تور، یکپارچه با سرویس‌های Identity و قطار؛ از مدل‌سازی موجودی و قیمت‌گذاری تا تجربهٔ رزرو پایدار در ترافیک بالا.</p>
+        <div class="project__metric"><b>۳۰٪</b><span>رشد درآمد شرکت</span></div>
+        <div class="pills"><span class="pill">.NET</span><span class="pill">Microservices</span><span class="pill">Identity</span></div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project__kicker">IWand.Style · هوش مصنوعی</div>
+        <h3>بهینه‌سازی موتور جستجو</h3>
+        <p>بازنویسی کوئری‌ها و ایندکس‌گذاری روی MongoDB و PostgreSQL در یک معماری مونولیت ماژولار؛ نتیجه، کاهش چشمگیر زمان پاسخ در مسیر جستجوی کاربر.</p>
+        <div class="project__metric"><b>۹۰٪+</b><span>بهبود زمان پاسخ جستجو</span></div>
+        <div class="pills"><span class="pill">MongoDB</span><span class="pill">PostgreSQL</span><span class="pill">.NET 7</span></div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project__kicker">IranElT · بیمه</div>
+        <h3>اکوسیستم میکروسرویس بیمه</h3>
+        <p>مشارکت در راهکار جامع میکروسرویسی صنعت بیمه با بیش از ۲۰۰ پروژه؛ توسعهٔ تدریجی دامنه‌ها با رعایت SOLID و همکاری مستقیم با تحلیلگران کسب‌وکار.</p>
+        <div class="project__metric"><b>۲۰۰+</b><span>پروژهٔ یکپارچه</span></div>
+        <div class="pills"><span class="pill">Microservices</span><span class="pill">CQRS</span><span class="pill">SQL Server</span></div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project__kicker">Shygun System · خرده‌فروشی</div>
+        <h3>HESABGAR: STORES</h3>
+        <p>محصول انبارداری سازمانی با DevExpress WinForms، به‌همراه لایهٔ وب‌سرویس و پلاگین برای اتصال به فروشگاه‌های اینترنتی و همگام‌سازی موجودی.</p>
+        <div class="project__metric"><b>۱۰۰+</b><span>وب API توسعه‌یافته</span></div>
+        <div class="pills"><span class="pill">WinForms</span><span class="pill">DevExpress</span><span class="pill">SQL Server</span></div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project__kicker">Chalka · موبایل + وب</div>
+        <h3>یکپارچه‌سازی وب و اپ موبایل</h3>
+        <p>اتصال اپلیکیشن وب به اپلیکیشن موبایل با بیش از ۳۰ API مبتنی بر REST، و توسعهٔ سامانهٔ مدیریت اطلاعات پیاده‌روی اربعین با ASP.NET WebForms.</p>
+        <div class="project__metric"><b>۳۰+</b><span>REST API</span></div>
+        <div class="pills"><span class="pill">REST</span><span class="pill">ASP.NET</span><span class="pill">WebForms</span></div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project__kicker">ITDP Rose · داده</div>
+        <h3>گزارش‌گیری مالی و HR</h3>
+        <p>بازنویسی رویه‌ها و توابع SQL برای سامانه‌های حسابداری، HRM و حقوق و دستمزد، و طراحی دیتابیس در همکاری با راه‌آهن ایران.</p>
+        <div class="project__metric"><b>۲۰٪</b><span>افزایش سرعت گزارش</span></div>
+        <div class="pills"><span class="pill">T-SQL</span><span class="pill">Reporting</span><span class="pill">DB Design</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ EDUCATION ══════════════ -->
+<section class="section" id="education">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow">تحصیلات و زبان</span>
+      <h2 class="section-title">پشتوانهٔ آکادمیک</h2>
+    </div>
+
+    <div class="split">
+      <div class="panel reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-5 9 5-9 5-9-5Z"/><path d="M7 11.5V17c0 1.5 2.2 3 5 3s5-1.5 5-3v-5.5"/></svg> تحصیلات</h3>
+        <div class="edu__title">کارشناسی مهندسی نرم‌افزار</div>
+        <div class="edu__meta">دانشگاه اراک · اراک، ایران · ۲۰۱۱ تا ۲۰۱۵</div>
+        <p class="edu__note">پایه‌های مهندسی نرم‌افزار، طراحی الگوریتم و پایگاه داده؛ همان جایی که علاقه به دیتابیس و بعدها معماری سیستم‌ها شکل گرفت.</p>
+      </div>
+
+      <div class="panel reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.6 2.4 15.4 0 18M12 3c-2.4 2.6-2.4 15.4 0 18"/></svg> زبان‌ها</h3>
+        <div class="lang-row">
+          <div class="lang-item">
+            <span>فارسی</span><em>زبان مادری</em>
+            <div class="bar"><i style="width:100%"></i></div>
+          </div>
+          <div class="lang-item">
+            <span>انگلیسی</span><em>بالاتر از متوسط</em>
+            <div class="bar"><i style="width:72%"></i></div>
+          </div>
+        </div>
+        <p class="edu__note">ارتباط روزمرهٔ کاری و مطالعهٔ مستندات فنی به انگلیسی؛ تجربهٔ کار در تیم‌های چندنقشی و هماهنگی با ذی‌نفعان محصول.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section class="section section--alt" id="contact">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow">تماس</span>
+      <h2 class="section-title">پروژه‌ای در ذهن دارید؟</h2>
+      <p class="section-sub">برای همکاری پروژه‌ای، نقش لید فنی یا مشاورهٔ معماری بک‌اند، مستقیم ایمیل بزنید.</p>
+    </div>
+
+    <div class="contact">
+      <div class="contact__card reveal">
+        <h3>بیایید دربارهٔ سیستم شما حرف بزنیم</h3>
+        <p>
+          اگر دنبال کسی هستید که معماری را از صفر طراحی کند، تیم را هدایت کند یا یک بک‌اند
+          کند و پرخرج را به وضعیت پایدار برگرداند — یک ایمیل کافی است. معمولاً در کمتر از
+          ۲۴ ساعت پاسخ می‌دهم.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <a class="btn btn--primary" href="mailto:h.nooriazad93@gmail.com?subject=%D9%87%D9%85%DA%A9%D8%A7%D8%B1%DB%8C%20%D9%BE%D8%B1%D9%88%DA%98%D9%87%E2%80%8C%D8%A7%DB%8C">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            ارسال ایمیل
+          </a>
+          <a class="btn btn--ghost" href="assets/Hossein-NooriAzad-Resume.pdf" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+            رزومهٔ کامل
+          </a>
+        </div>
+      </div>
+
+      <div class="contactlinks reveal">
+        <a class="clink" href="mailto:h.nooriazad93@gmail.com">
+          <span class="clink__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+          <span><b>ایمیل</b><small>h.nooriazad93@gmail.com</small></span>
+        </a>
+        <a class="clink" href="https://www.linkedin.com/in/hnooriazad" target="_blank" rel="noopener">
+          <span class="clink__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10.5V17M7.5 7.6v.1M12 17v-3.6a2.2 2.2 0 0 1 4.4 0V17"/></svg></span>
+          <span><b>لینکدین</b><small>/in/hnooriazad</small></span>
+        </a>
+        <a class="clink" href="https://github.com/hnooriazad" target="_blank" rel="noopener">
+          <span class="clink__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-4 1.2-4-2.2-5.5-2.8M15 21v-3.6c0-1 .1-1.4-.5-2 2.3-.3 4.5-1.1 4.5-5a3.9 3.9 0 0 0-1.1-2.7 3.6 3.6 0 0 0-.1-2.7s-1.1-.3-3.6 1.3a12.4 12.4 0 0 0-6.5 0C5.2 2.7 4.1 3 4.1 3a3.6 3.6 0 0 0-.1 2.7A3.9 3.9 0 0 0 2.9 8.4c0 3.8 2.1 4.6 4.4 4.9-.5.6-.6 1.3-.5 2V21"/></svg></span>
+          <span><b>گیت‌هاب</b><small>github.com/hnooriazad</small></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>© <span id="year">2026</span> حسین نوری‌آزاد — همهٔ حقوق محفوظ است.</div>
+    <div class="footer__links">
+      <a href="#about">درباره</a>
+      <a href="#experience">تجربه</a>
+      <a href="#work">پروژه‌ها</a>
+      <a href="en/" hreflang="en" lang="en">English</a>
+    </div>
+    <div class="mono">nooriazad.ir</div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

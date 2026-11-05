@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>overflow-probe</title></head>
+<body><pre id="out">…</pre><div id="stage"></div>
+<script>
+const pages=['/index.html','/en/index.html'];
+const out=[];
+function load(u,w){return new Promise(r=>{const f=document.createElement('iframe');f.width=w;f.height=800;f.src=u;f.onload=()=>setTimeout(()=>r(f),400);document.getElementById('stage').appendChild(f);});}
+(async()=>{
+ for(const u of pages){
+  const f=await load(u,320); const d=f.contentDocument;
+  const W=d.documentElement.clientWidth;
+  const offenders=[...d.querySelectorAll('body *')].map(e=>{const r=e.getBoundingClientRect();
+      return {tag:e.tagName.toLowerCase()+(e.className&&typeof e.className==='string'?'.'+e.className.split(' ').filter(Boolean).join('.'):''),
+              right:Math.round(r.right), left:Math.round(r.left), w:Math.round(r.width), txt:(e.textContent||'').trim().slice(0,40)};})
+    .filter(o=>o.right>W+1||o.left<-1).slice(0,14);
+  out.push({page:u, clientWidth:W, scrollWidth:d.documentElement.scrollWidth, offenders});
+  f.remove();
+ }
+ document.getElementById('out').textContent=JSON.stringify(out,null,1);
+ document.title='OK';
+})();
+</script></body></html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>layout-check</title>
+<style>
+  body { font: 13px ui-monospace, monospace; background: #fff; color: #000; margin: 0; }
+  iframe { border: 1px solid #ccc; display: block; }
+  pre { margin: 8px; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<pre id="out">running…</pre>
+<div id="stage"></div>
+<script>
+const pages = [
+  { name: 'fa', url: '/index.html' },
+  { name: 'en', url: '/en/index.html' }
+];
+const widths = [1440, 1024, 768, 390, 320];
+const results = [];
+
+function loadFrame(url, w) {
+  return new Promise(res => {
+    const f = document.createElement('iframe');
+    f.width = w; f.height = 900;
+    f.src = url;
+    f.onload = () => setTimeout(() => res(f), 500);
+    document.getElementById('stage').appendChild(f);
+  });
+}
+
+(async () => {
+  for (const p of pages) {
+    for (const w of widths) {
+      const f = await loadFrame(p.url, w);
+      const d = f.contentDocument, win = f.contentWindow;
+      const de = d.documentElement;
+      const over = de.scrollWidth - de.clientWidth;
+      const heroH1 = d.querySelector('h1');
+      const cx = heroH1 ? heroH1.getBoundingClientRect() : null;
+      const navVisible = (() => {
+        const n = d.querySelector('.nav'), m = d.querySelector('.menu-btn');
+        const vis = el => el && getComputedStyle(el).display !== 'none';
+        return { nav: vis(n), menu: vis(m) };
+      })();
+      const fontOk = win.document.fonts.check('16px Vazirmatn');
+      const broken = [...d.images].filter(i => !i.complete || i.naturalWidth === 0).map(i => i.src);
+      const themeAttr = de.getAttribute('data-theme');
+      const revealHidden = [...d.querySelectorAll('.reveal')].filter(e => getComputedStyle(e).opacity === '0').length;
+      results.push({
+        page: p.name, width: w, overflowX: over,
+        h1Width: cx ? Math.round(cx.width) : null,
+        h1InViewport: cx ? (cx.left >= -1 && cx.right <= de.clientWidth + 1) : null,
+        navVisible, vazirmatn: fontOk, theme: themeAttr,
+        revealHiddenInViewport: revealHidden,
+        brokenImages: broken
+      });
+      f.remove();
+    }
+  }
+  // interactive checks on the fa page
+  const f = await loadFrame('/index.html', 1280);
+  const d = f.contentDocument, win = f.contentWindow;
+  const btn = d.getElementById('themeToggle');
+  btn.click();
+  const afterLight = d.documentElement.getAttribute('data-theme');
+  const bgLight = getComputedStyle(d.body).backgroundColor;
+  btn.click();
+  const afterDark = d.documentElement.getAttribute('data-theme');
+  const menuBtn = d.getElementById('menuBtn');
+  menuBtn.click();
+  const drawerOpen = d.getElementById('drawer').classList.contains('is-open');
+  d.querySelector('#drawer [data-close]').click();
+  const drawerClosed = !d.getElementById('drawer').classList.contains('is-open');
+  const year = d.getElementById('year').textContent;
+  const anchorOk = [...d.querySelectorAll('a[href^="#"]')].every(a => {
+    if (a.getAttribute('href') === '#') return true;
+    return !!d.querySelector(a.getAttribute('href'));
+  });
+  results.push({ themeToggle: { afterLight, afterDark, bgLight }, drawer: { drawerOpen, drawerClosed }, year,
+                 anchorsResolve: anchorOk });
+  f.remove();
+
+  const txt = JSON.stringify(results, null, 1);
+  document.getElementById('out').textContent = txt;
+  document.title = 'DONE ' + results.length;
+})();
+</script>
+</body>
+</html>
