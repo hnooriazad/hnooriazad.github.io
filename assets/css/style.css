@@ -320,6 +320,11 @@ html[dir='rtl'] .drawer__panel { animation-name: slideInRtl; }
 .drawer__close { align-self: flex-end; margin-bottom: 12px; }
 
 /* ---------- Hero ---------- */
+#gl { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+#gl canvas { width: 100%; height: 100%; display: block; opacity: .9; }
+.hero > .hero__grid { position: relative; z-index: 3; }
+.hero::before { z-index: 1; }
+.hero::after { z-index: 2; }
 .hero {
   position: relative;
   padding-block: clamp(56px, 9vw, 104px) clamp(48px, 7vw, 84px);
