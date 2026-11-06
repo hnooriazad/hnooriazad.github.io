@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>حسین نوری‌آزاد — نسخهٔ خفن (دمو) | nooriazad.ir</title>
+<meta name="description" content="نسخهٔ نمایشی پورتفولیو حسین نوری‌آزاد: هیروی سه‌بعدی با شیدر، پارالاکس اسکرول و روایت مراحل — تجربهٔ حداکثری وب.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+/* ═══════════ showcase-only layout ═══════════ */
+body { background: #05070c; overflow-x: hidden; }
+.stage--clip { overflow: clip; }
+.backbar {
+  position: fixed; inset-inline: 0; top: 0; z-index: 400;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px clamp(16px, 4vw, 36px);
+  background: linear-gradient(to bottom, rgba(5,7,12,.88), transparent);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+.backbar a, .backbar span {
+  font-size: .84rem; color: var(--fg-dim); display: inline-flex; align-items: center; gap: 8px;
+}
+.backbar a:hover { color: var(--accent); }
+.backbar .pill { padding: 5px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--card); }
+html[dir='ltr'] .backbar span.order { direction: rtl; }
+
+/* ─────────── pinned stage ─────────── */
+.stage { position: relative; }
+.panel {
+  min-height: 100vh;
+  display: grid; place-items: center;
+  padding: 96px clamp(20px, 6vw, 72px);
+  position: relative;
+}
+.panel__inner { position: relative; z-index: 3; max-width: 1080px; width: 100%; }
+
+.big-title {
+  font-size: clamp(2.4rem, 7vw, 5.2rem);
+  font-weight: 700; line-height: 1.14; letter-spacing: -.02em;
+}
+.big-title .g {
+  background: linear-gradient(100deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.lead { color: var(--muted); font-size: clamp(1rem, 2vw, 1.25rem); max-width: 56ch; margin-top: 20px; }
+
+/* ─────────── scene numbering + progress ─────────── */
+.scene-no {
+  position: absolute; inset-inline-start: clamp(16px, 4vw, 48px); top: 50%; transform: translateY(-50%);
+  font-family: var(--mono); font-size: .78rem; color: var(--muted);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.scene-no b { color: var(--accent); font-weight: 600; }
+.scene-no .tick { width: 26px; height: 1px; background: var(--border-hi); }
+html[dir='ltr'] .scene-no { transform: translateY(-50%); }
+@media (max-width: 768px) { .scene-no { display: none; } }
+
+/* ─────────── hero canvas ─────────── */
+#gl { position: absolute; inset: 0; z-index: 1; }
+#gl canvas { width: 100%; height: 100%; display: block; }
+.panel--hero { place-items: end center; }
+.panel--hero .panel__inner { margin-bottom: 10vh; text-align: center; }
+.scroll-hint {
+  margin-top: 46px; display: inline-flex; flex-direction: column; align-items: center; gap: 8px;
+  color: var(--muted); font-size: .8rem;
+}
+.scroll-hint__mouse {
+  width: 22px; height: 34px; border: 1.5px solid var(--border-hi); border-radius: 12px; position: relative;
+}
+.scroll-hint__mouse::after {
+  content: ''; position: absolute; top: 6px; inset-inline-start: 50%; margin-inline-start: -2px;
+  width: 4px; height: 8px; border-radius: 4px; background: var(--accent);
+  animation: wheel 1.7s ease infinite;
+}
+@keyframes wheel { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(11px); opacity: 0; } 100% { opacity: 0; } }
+
+/* ─────────── stat grid (pinned scene) ─────────── */
+.statgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px,100%), 1fr)); gap: 18px; }
+.statcard {
+  padding: 30px 24px; border: 1px solid var(--border); border-radius: var(--radius);
+  background: color-mix(in srgb, var(--card) 82%, transparent);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  text-align: center;
+}
+.statcard b {
+  display: block; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 700; line-height: 1.1;
+  background: linear-gradient(100deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.statcard span { color: var(--muted); font-size: .88rem; }
+
+/* ─────────── horizontal project track ─────────── */
+.hwrap { position: relative; }
+.htitle { margin-bottom: 40px; }
+.htitle .big-title { font-size: clamp(1.8rem, 4.5vw, 3rem); }
+.htrack { display: flex; gap: 22px; padding-inline: clamp(20px, 6vw, 72px); padding-bottom: 60px; }
+.hcard {
+  flex: 0 0 min(420px, 78vw);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  padding: 30px; display: flex; flex-direction: column; gap: 14px;
+  transform-style: preserve-3d;
+}
+.hcard .pn {
+  font-size: .74rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); font-weight: 600;
+}
+.hcard h3 { font-size: 1.3rem; font-weight: 700; }
+.hcard p { color: var(--muted); font-size: .92rem; flex: 1; }
+.hcard .pills { margin-top: 6px; }
+.hcard .metric {
+  display: flex; align-items: baseline; gap: 10px; border-top: 1px solid var(--border); padding-top: 16px;
+}
+.hcard .metric b { font-size: 2rem; font-weight: 700; color: var(--accent-2); line-height: 1; }
+.hcard .metric span { color: var(--muted); font-size: .84rem; }
+
+/* ─────────── timeline scene (pinned build-up) ─────────── */
+.tl { display: grid; gap: 0; max-width: 720px; margin-inline: auto; }
+.tl-item { position: relative; padding: 34px 0 34px 0; }
+.tl-item h3 { font-size: clamp(1.2rem, 2.6vw, 1.7rem); font-weight: 700; }
+.tl-item .yr {
+  font-family: var(--mono); font-size: .8rem; color: var(--accent);
+  display: block; margin-bottom: 6px; direction: ltr; text-align: start;
+}
+.tl-item p { color: var(--muted); font-size: .95rem; margin-top: 8px; max-width: 52ch; }
+.tl-item::before {
+  content: ''; position: absolute; inset-inline-start: -22px; top: 42px;
+  width: 10px; height: 10px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 0 5px var(--accent-soft);
+}
+.tl-case { border-inline-start: 1px solid var(--border); padding-inline-start: clamp(18px, 3vw, 34px); }
+
+/* ─────────── CTA outro ─────────── */
+.panel--out { text-align: center; }
+.panel--out .big-title { font-size: clamp(2rem, 5.5vw, 4rem); }
+.panel--out .lead { margin-inline: auto; }
+
+/* progress bar */
+.pbar { position: fixed; inset-inline: 0; top: 0; height: 3px; z-index: 500; }
+.pbar i { display: block; height: 100%; width: 100%; transform-origin: right center; transform: scaleX(0); background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+html[dir='ltr'] .pbar i { transform-origin: left center; }
+
+/* .hcard .pn had a broken escaped line in first write; restored */
+
+.footer { text-align: center; }
+.footer__inner { justify-content: center; flex-direction: column; gap: 8px; }
+
+@media (max-width: 768px) {
+  .panel { min-height: 88vh; }
+  .hcard { flex-basis: 84vw; }
+  .backbar { padding: 10px 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="pbar"><i id="pbarFill"></i></div>
+
+<header class="backbar">
+  <a href="../">← بازگشت به نسخهٔ اصلی</a>
+  <span class="pill order">نمایش آزمایشی — Scrolltide style</span>
+</header>
+
+<main id="smooth-content">
+
+  <!-- ═══════════ SCENE 0 · HERO + shader canvas ═══════════ -->
+  <section class="stage">
+    <div class="panel panel--hero" id="heroPanel">
+      <div id="gl"></div>
+      <div class="panel__inner">
+        <div class="scene-no"><b>۰۰</b><span class="tick"></span><span>شروع</span></div>
+        <h1 class="big-title">نرم‌افزاری می‌سازم که<br><span class="g">مقیاس می‌گیرد</span></h1>
+        <p class="lead mx-auto" style="margin-inline:auto">حسین نوری‌آزاد — مهندس ارشد نرم‌افزار · لید فنی<br>۱۱+ سال طراحی و تحویل محصول، از میکروسرویس تا اپ موبایل</p>
+        <div class="scroll-hint"><span class="scroll-hint__mouse"></span> اسکرول کن</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SCENE 1 · STATS ═══════════ -->
+  <section class="stage">
+    <div class="panel" id="panelStats">
+      <div class="scene-no"><b>۰۱</b><span class="tick"></span><span>اعداد</span></div>
+      <div class="panel__inner">
+        <div class="statgrid">
+          <div class="statcard" data-anim="pop"><b>۱۱+</b><span>سال تجربهٔ توسعه</span></div>
+          <div class="statcard" data-anim="pop"><b>۲۰۰+</b><span>پروژه در اکوسیستم بیمه · نقش همکار</span></div>
+          <div class="statcard" data-anim="pop"><b>۹۰٪</b><span>بهبود سرعت جستجو</span></div>
+          <div class="statcard" data-anim="pop"><b>۳۰+</b><span>REST API در Chalka</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SCENE 2 · TIMELINE (pinned build-up) ═══════════ -->
+  <section class="stage">
+    <div class="panel" id="panelTimeline">
+      <div class="scene-no"><b>۰۲</b><span class="tick"></span><span>مسیر</span></div>
+      <div class="panel__inner">
+        <h2 class="big-title" style="font-size:clamp(1.8rem,4vw,2.8rem); margin-bottom:44px">از <span class="g">SQL</span> تا لید فنی</h2>
+        <div class="tl tl-case">
+          <div class="tl-item" data-step>
+            <span class="yr">2016 – 2018</span><h3>ITDP Rose — SQL Developer</h3>
+            <p>رویه‌ها و توابع گزارش‌گیری برای حسابداری، HRM و حقوق و دستمزد؛ +۲۰٪ سرعت گزارش.</p>
+          </div>
+          <div class="tl-item" data-step>
+            <span class="yr">2018 – 2020</span><h3>Shygun System — .NET Developer</h3>
+            <p>HESABGAR: STORES با DevExpress؛ ۱۰۰+ وب‌API برای e-commerce؛ SignalR بلادرنگ.</p>
+          </div>
+          <div class="tl-item" data-step>
+            <span class="yr">2021 – 2022</span><h3>IRANEIT — .NET Developer</h3>
+            <p>همکاری در اکوسیستم میکروسرویس بیمه؛ ۲۰۰+ پروژهٔ فعال، دامنه‌های SOLID.</p>
+          </div>
+          <div class="tl-item" data-step>
+            <span class="yr">2022 – 2023</span><h3>IWand.Style — Technical Lead</h3>
+            <p>زیرساخت کامل از صفر؛ جستجوی متنی روی میلیون‌ها رکورد + جستجوی تصویری با تیم AI.</p>
+          </div>
+          <div class="tl-item" data-step>
+            <span class="yr">2023 — اکنون</span><h3>FadakTrains — Senior Engineer</h3>
+            <p>لید تیم هتل و تور؛ رشد ۵٪ درآمد شرکت از رزرو هتل.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SCENE 3 · horizontal project track ═══════════ -->
+  <section class="stage hwrap stage--clip" id="panelWork">
+    <div class="scene-no" style="top:26vh"><b>۰۳</b><span class="tick"></span><span>کارها</span></div>
+    <div class="htitle panel" style="min-height:0; padding-bottom:0">
+      <div class="panel__inner">
+        <h2 class="big-title">پروژه‌هایی که <span class="g">به آن‌ها افتخار می‌کنم</span></h2>
+      </div>
+    </div>
+    <div class="htrack" id="htrack">
+      <article class="hcard">
+        <span class="pn">FadakTrains · Travel</span><h3>پلتفرم رزرو هتل و تور</h3>
+        <p>بک‌اند رزرو هتل، یکپارچه با Identity و سرویس قطار؛ پایدار زیر ترافیک واقعی.</p>
+        <div class="pills"><span class="pill">.NET</span><span class="pill">Microservices</span><span class="pill">Identity</span></div>
+        <div class="metric"><b>۵٪</b><span>رشد درآمد شرکت</span></div>
+      </article>
+      <article class="hcard">
+        <span class="pn">IWand.Style · AI</span><h3>اکوسیستم جستجو از صفر</h3>
+        <p>زیرساخت کامل: جستجوی متنی روی میلیون‌ها رکورد + جستجوی تصویری با تیم AI.</p>
+        <div class="pills"><span class="pill">MongoDB</span><span class="pill">PostgreSQL</span><span class="pill">.NET 7</span></div>
+        <div class="metric"><b>۹۰٪+</b><span>بهبود زمان پاسخ</span></div>
+      </article>
+      <article class="hcard">
+        <span class="pn">IRANEIT · Insurance</span><h3>اکوسیستم میکروسرویس بیمه</h3>
+        <p>همکاری (نه مالکیت) در اکوسیستمی با ۲۰۰+ پروژهٔ فعال.</p>
+        <div class="pills"><span class="pill">Microservices</span><span class="pill">CQRS</span><span class="pill">SOLID</span></div>
+        <div class="metric"><b>۲۰۰+</b><span>پروژه · نقش همکار</span></div>
+      </article>
+      <article class="hcard">
+        <span class="pn">آب و فاضلاب · مشتری</span><h3>پنل پایش مشترکان</h3>
+        <p>.NET + PostgreSQL + Next.js؛ فارسی و RTL، دیپلوی Dockerized.</p>
+        <div class="pills"><span class="pill">.NET</span><span class="pill">Next.js</span><span class="pill">Docker</span></div>
+        <div class="metric"><b>۱۰۰٪</b><span>فارسی و RTL</span></div>
+      </article>
+      <article class="hcard">
+        <span class="pn">محصول خودم · avamoon.ir</span><h3>آوامون — قصه‌ساز هوشمند</h3>
+        <p>Flutter اندروید + FastAPI + Next.js؛ داستان، روایت صوتی و تصویرسازی با AI.</p>
+        <div class="pills"><span class="pill">Flutter</span><span class="pill">FastAPI</span><span class="pill">AI</span></div>
+        <div class="metric"><b>۰–۱۱</b><span>سال، گروه مخاطب</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══════════ SCENE 4 · OUTRO CTA ═══════════ -->
+  <section class="stage">
+    <div class="panel panel--out" id="panelOut">
+      <div class="scene-no"><b>۰۴</b><span class="tick"></span><span>پایان</span></div>
+      <div class="panel__inner">
+        <h2 class="big-title">پروژه‌ای در ذهن داری؟</h2>
+        <p class="lead" style="margin-inline:auto">معماری از صفر، هدایت تیم یا احیای یک بک‌اند کند — یک ایمیل کافی است.</p>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:30px;flex-wrap:wrap">
+          <a class="btn btn--primary" href="mailto:h.nooriazad93@gmail.com">ارسال ایمیل</a>
+          <a class="btn btn--ghost" href="../#contact">نسخهٔ اصلی سایت</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>© <span id="year">2026</span> حسین نوری‌آزاد</div>
+    <div class="mono">showcase.nooriazad.ir</div>
+  </div>
+</footer>
+
+<script src="../showcase/vendor/gsap.min.js"></script>
+<script src="../showcase/vendor/ScrollTrigger.min.js"></script>
+<script type="module" src="gl-hero.js"></script>
+<script src="animations.js"></script>
+</body>
+</html>

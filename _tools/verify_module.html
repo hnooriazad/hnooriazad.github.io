@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>modcheck</title></head>
+<body><pre id="out">…</pre>
+<script type="module">
+const out = [];
+// 1) can the module be imported at all?
+try {
+  const m = await import('/showcase/gl-hero.js');
+  out.push('import gl-hero: OK', typeof m);
+} catch (e) {
+  out.push('import gl-hero FAILED: ' + e.message);
+}
+// 2) can three be imported directly?
+try {
+  const t = await import('/showcase/vendor/three.module.min.js');
+  out.push('import three: OK, keys sample: ' + Object.keys(t).slice(0,4).join(','));
+} catch (e) {
+  out.push('import three FAILED: ' + e.message);
+}
+document.getElementById('out').textContent = out.join('\\n');
+</script>
+</body></html>

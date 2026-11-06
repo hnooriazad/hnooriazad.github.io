@@ -335,6 +335,13 @@ html[dir='rtl'] .drawer__panel { animation-name: slideInRtl; }
     radial-gradient(45% 55% at 78% 10%, var(--accent-2-soft), transparent 72%);
   pointer-events: none;
   filter: blur(10px);
+  animation: aurora 14s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes aurora {
+  0%   { transform: translate3d(-3%, -2%, 0) scale(1); }
+  50%  { transform: translate3d(3%, 2%, 0) scale(1.08); }
+  100% { transform: translate3d(-2%, 3%, 0) scale(1.04) rotate(1.5deg); }
 }
 .hero::after {
   content: '';
@@ -436,6 +443,11 @@ html[dir='rtl'] .drawer__panel { animation-name: slideInRtl; }
   overflow: hidden;
   transform: perspective(1200px) rotateY(-6deg) rotateX(3deg);
   transition: transform .5s ease;
+  animation: floaty 7s ease-in-out infinite alternate;
+}
+@keyframes floaty {
+  from { margin-top: 0; }
+  to { margin-top: -10px; }
 }
 html[dir='rtl'] .codecard { transform: perspective(1200px) rotateY(6deg) rotateX(3deg); }
 .codecard:hover { transform: perspective(1200px) rotateY(0) rotateX(0); }
@@ -541,12 +553,16 @@ html[dir='rtl'] .codecard { transform: perspective(1200px) rotateY(6deg) rotateX
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--card);
-  transition: border-color .2s ease, transform .2s ease, background .2s ease;
+  transform-style: preserve-3d;
+  transition: border-color .2s ease, transform .35s cubic-bezier(.22,.61,.36,1), background .2s ease, box-shadow .35s ease;
+  will-change: transform;
 }
 .skillcard:hover {
-  border-color: var(--border-hi);
-  transform: translateY(-3px);
+  border-color: var(--accent);
   background: var(--card-hi);
+  box-shadow: 0 24px 50px -22px rgba(0,0,0,.55);
+  /* JS sets --tiltx/--tilty; fallback lift when not */
+  transform: perspective(800px) rotateX(var(--tiltx, 0deg)) rotateY(var(--tilty, 0deg)) translateY(-3px);
 }
 .skillcard__head {
   display: flex;
@@ -671,7 +687,9 @@ mark {
   border-radius: var(--radius);
   background: var(--card);
   overflow: hidden;
-  transition: transform .25s ease, border-color .25s ease;
+  transform-style: preserve-3d;
+  transition: transform .35s cubic-bezier(.22,.61,.36,1), border-color .25s ease, box-shadow .35s ease;
+  will-change: transform;
 }
 .project::after {
   content: '';
@@ -683,7 +701,11 @@ mark {
   opacity: 0;
   transition: opacity .25s ease;
 }
-.project:hover { transform: translateY(-4px); border-color: var(--border-hi); }
+.project:hover {
+  transform: perspective(800px) rotateX(var(--tiltx, 0deg)) rotateY(var(--tilty, 0deg)) translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 24px 50px -22px rgba(0,0,0,.55);
+}
 .project:hover::after { opacity: 1; }
 .project__kicker {
   font-size: .74rem;
@@ -841,8 +863,8 @@ html[dir='ltr'] .clink:hover { transform: translateX(3px); }
 /* ---------- Reveal animation ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity .6s cubic-bezier(.22, .61, .36, 1), transform .6s cubic-bezier(.22, .61, .36, 1);
+  transform: translateY(22px) scale(.985);
+  transition: opacity .7s cubic-bezier(.22, .61, .36, 1), transform .7s cubic-bezier(.22, .61, .36, 1);
 }
 .reveal.is-in { opacity: 1; transform: none; }
 
@@ -850,6 +872,7 @@ html[dir='ltr'] .clink:hover { transform: translateX(3px); }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
+  .hero::before, .codecard { animation: none !important; }
   .codecard, html[dir='rtl'] .codecard { transform: none; }
 }
 
@@ -886,3 +909,8 @@ html[dir='ltr'] .clink:hover { transform: translateX(3px); }
   .section { padding-block: 20px; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ---------- pointer polish ---------- */
+.stat { transition: background .2s ease; }
+.stat:hover { background: var(--card-hi); }
+@media (hover: none) { .skillcard:hover, .project:hover { transform: none; } }
