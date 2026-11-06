@@ -476,15 +476,6 @@ html[dir='rtl'] .codecard { transform: perspective(1200px) rotateY(6deg) rotateX
 .codecard .c { color: var(--muted); font-style: italic; }
 .codecard .n { color: #f8c96a; }
 
-/* ---------- Hero photo ---------- */
-.heroPhoto {
-  height: 68px;
-  width: auto;
-  margin-bottom: 14px;
-  filter: drop-shadow(0 14px 30px rgba(7, 9, 14, .55));
-}
-html[data-theme='light'] .heroPhoto { filter: drop-shadow(0 14px 24px rgba(16, 28, 51, .25)); }
-
 /* ---------- Stats ---------- */
 .stats {
   display: grid;
